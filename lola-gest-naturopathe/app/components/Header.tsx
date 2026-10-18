@@ -77,7 +77,7 @@ export default function Header() {
           rel="noopener noreferrer" 
           className="btn-planity"
         >
-          Prendre RDV
+          Prendre RDV sur Planity
         </a>
       </div>
     </header>
