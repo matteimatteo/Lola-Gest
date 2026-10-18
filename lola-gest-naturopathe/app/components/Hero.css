@@ -1,0 +1,173 @@
+/* ─────────────────────────────────────────────────
+   Hero — Fond terracotta plein, structuré pour
+   accueillir une vidéo en background plus tard.
+   Organisation : Titre centré + CTA + overlay naturel
+   ───────────────────────────────────────────────── */
+
+.hero-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 7rem 7% 5rem;
+  overflow: hidden;
+  background-color: var(--terracotta);
+  /* Quand la vidéo arrivera, ce sera le fond derrière l'overlay */
+}
+
+/* ── Texture organique en arrière-plan ────── */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 50%, rgba(156, 86, 56, 0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 88% 20%, rgba(44, 38, 32, 0.35) 0%, transparent 65%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Forme organique déco coin haut-droite ── */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -50px;
+  width: 500px;
+  height: 500px;
+  /* ON AJOUTE LA PHOTO ICI */
+  background-image: url('/hero-photo.png');
+  background-size: cover;
+  background-position: center;
+  /* On garde l'effet asymétrique et l'animation */
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morph 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* ── Contenu central ────────────────────────── */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Pastille eyebrow */
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(246, 240, 230, 0.75);
+  margin-bottom: 2rem;
+  padding: 0.4rem 1.1rem;
+  border: 1px solid rgba(246, 240, 230, 0.25);
+  border-radius: 50px;
+}
+
+/* Titre principal */
+.hero-content h1 {
+  font-size: clamp(3.2rem, 6vw, 6.5rem);
+  color: var(--lin);
+  line-height: 1.02;
+  margin-bottom: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.hero-accent {
+  color: rgba(246, 240, 230, 0.65);
+  font-style: italic;
+  font-size: 0.85em;
+}
+
+/* Sous-titre */
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: rgba(246, 240, 230, 0.65);
+  margin-bottom: 3.5rem;
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 520px;
+}
+
+/* ── Boutons ────────────────────────────────── */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bouton principal : lin sur terracotta */
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: var(--lin);
+  color: var(--terracotta-dark);
+  border: none;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:hover {
+  background-color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton secondaire : ghost blanc */
+.btn-secondary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: transparent;
+  color: rgba(246, 240, 230, 0.8);
+  border: 1px solid rgba(246, 240, 230, 0.3);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  color: var(--lin);
+  border-color: rgba(246, 240, 230, 0.65);
+  transform: translateY(-2px);
+}
+
+
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 5rem 5% 4rem;
+  }
+
+  .hero-section::after {
+    width: 300px;
+    height: 300px;
+    top: -20px;
+    right: -20px;
+    opacity: 0.5; /* Plus transparent sur mobile pour qu'on lise bien le texte */
+  }
+}

@@ -1,0 +1,143 @@
+/* ─────────────────────────────────────────────────
+   Cabinet — fond vert d'eau, 100vh
+   ───────────────────────────────────────────────── */
+
+.cabinet-section {
+  padding: 0 7%;
+  background-color: var(--vert-eau);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.cabinet-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 5rem 0;
+}
+
+.cabinet-container h2 {
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  margin-bottom: 3rem;
+  color: var(--text-dark);
+  max-width: 520px;
+}
+
+/* Eyebrow pill */
+.cabinet-eyebrow {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--terracotta);
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid rgba(193, 112, 79, 0.3);
+  border-radius: 50px;
+}
+
+.cabinet-content {
+  display: flex;
+  gap: 4rem;
+  align-items: stretch;
+}
+
+.cabinet-infos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.cabinet-infos h3 {
+  font-size: 1.25rem;
+  color: var(--terracotta-dark);
+  font-weight: 500;
+}
+
+.cabinet-adresse {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.65;
+}
+
+.cabinet-texte {
+  color: var(--text-muted);
+  line-height: 1.85;
+  max-width: 460px;
+  font-size: 0.97rem;
+}
+
+.cabinet-instagram {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--terracotta);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cabinet-instagram:hover {
+  background-color: var(--terracotta-dark);
+  transform: translateY(-2px);
+}
+
+.cabinet-map {
+  flex: 1;
+  width: 100%;
+  min-height: 450px; /* On remet la grande taille ! */
+  position: relative; /* Très important pour que l'iframe remplisse le cadre */
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(44, 38, 32, 0.12);
+}
+
+.cabinet-map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .cabinet-section {
+    align-items: flex-start;
+    min-height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .cabinet-container {
+    padding: 4rem 0;
+  }
+
+  .cabinet-content {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .cabinet-texte {
+    max-width: none;
+  }
+
+  .cabinet-map {
+    min-height: 400px; /* Sur mobile on la garde bien grande aussi */
+  }
+  
+  .cabinet-map iframe {
+      width: 100%;
+      height: 100%;
+  }
+}

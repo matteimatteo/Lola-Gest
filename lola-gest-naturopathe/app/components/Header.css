@@ -1,0 +1,196 @@
+/* ─────────────────────────────────────────────────
+   Header — flottant, fond lin semi-transparent,
+   border-bottom subtile. Contraste avec le hero terracotta.
+   ───────────────────────────────────────────────── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 7%;
+  height: 70px;
+  background-color: rgba(246, 240, 230, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(193, 112, 79, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* AJOUTE CETTE LIGNE POUR L'ANIMATION : */
+  transition: transform 0.3s ease-in-out;
+}
+
+.header--hidden {
+  transform: translateY(-100%);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo couleur naturelle sur fond lin */
+.logo-container img {
+  filter: none;
+  opacity: 1;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-dark);
+  padding-bottom: 0.2rem;
+  transition: color 0.25s ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--terracotta);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--terracotta);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Bouton RDV : terracotta pill */
+.cta-container .btn-planity {
+  display: inline-block;
+  background-color: var(--terracotta);
+  color: var(--white);
+  border: none;
+  padding: 0.65rem 1.75rem;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 20px rgba(193, 112, 79, 0.3);
+}
+
+.cta-container .btn-planity:hover {
+  background-color: var(--terracotta-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(193, 112, 79, 0.4);
+}
+
+.mobile-menu-btn {
+  display: none; /* C'EST ÇA QUI LE CACHE SUR PC ! */
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+  color: var(--terracotta);
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: flex-end; /* On aligne tout à droite par défaut... */
+    align-items: center;
+    height: 65px;
+    padding: 0 5%;
+  }
+
+  .logo-container {
+    margin-right: auto; /* ...Puis on pousse le logo tout à gauche ! */
+    margin-bottom: 0;
+  }
+
+  .logo-container img {
+    width: 60px !important;
+    height: 40px !important;
+  }
+
+  /* On réaffiche le bouton Prendre RDV, en plus petit */
+  .cta-container {
+    display: flex;
+    order: 2; /* Se place avant le burger */
+  }
+
+  .cta-container .btn-planity {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.55rem;
+  }
+
+  /* On affiche le bouton Burger */
+  .mobile-menu-btn {
+    display: block;
+    order: 3; /* Se place tout à droite */
+    margin-left: 0.5rem; /* Petit espace entre le bouton RDV et le burger */
+  }
+
+  /* ANIMATION DOUCE DU MENU DÉROULANT */
+  .navbar {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(246, 240, 230, 0.98);
+    padding: 1.5rem 0;
+    box-shadow: 0 10px 20px rgba(44, 38, 32, 0.05);
+    border-bottom: 1px solid rgba(193, 112, 79, 0.12);
+    
+    /* Magie de l'animation : au lieu de display: none, on le rend transparent et on le remonte un peu */
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition: all 0.35s ease-out; /* Transition douce */
+  }
+
+  /* Quand on clique sur le burger, le menu devient visible et descend doucement à sa place */
+  .navbar.navbar--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;     /* Force la liste à prendre toute la largeur */
+    padding: 0;      /* SUPPRIME la marge invisible par défaut du navigateur */
+    margin: 0;
+    gap: 1.5rem;
+    text-align: center; /* Assure que le texte est bien au milieu */
+  }
+  
+  .navbar li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar a {
+    font-size: 0.75rem;
+  }
+}
