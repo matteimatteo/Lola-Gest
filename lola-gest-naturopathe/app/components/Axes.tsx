@@ -1,3 +1,6 @@
+'use client'; // Indispensable pour Framer Motion
+
+import { motion } from 'framer-motion';
 import './Axes.css';
 
 export default function Axes() {
@@ -14,8 +17,15 @@ export default function Axes() {
         </header>
 
         <div className="axes-grid">
-          {/* Axe 1 : Drainage Renata Franca */}
-          <article className="axe-card axe-card--primary">
+          
+          {/* Carte 1 : Apparait avec 0.1s de délai */}
+          <motion.article 
+            className="axe-card axe-card--primary"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }} // once:true évite que l'animation se répète si on remonte la page
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          >
             <div className="axe-card__number">01</div>
             <div className="axe-card__body">
               <div className="axe-card__icon" style={{ marginBottom: '1.5rem' }}>
@@ -34,8 +44,6 @@ export default function Axes() {
                 Elle stimule la circulation de la lymphe, favorise l&apos;élimination des toxines et
                 réduit les excès de liquides.
               </p>
-              
-              {/* AJOUT DU PRIX ICI */}
               <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
                 <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'rgba(255,255,255,0.9)', display: 'block', marginBottom: '0.5rem' }}>
                   À partir de 50 €
@@ -50,10 +58,16 @@ export default function Axes() {
                 </a>
               </div>
             </div>
-          </article>
+          </motion.article>
 
-          {/* Axe 2 : Naturopathie & Nutrithérapie */}
-          <article className="axe-card axe-card--secondary">
+          {/* Carte 2 : Apparait avec 0.3s de délai */}
+          <motion.article 
+            className="axe-card axe-card--secondary"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+          >
             <div className="axe-card__number">02</div>
             <div className="axe-card__body">
               <div className="axe-card__icon" style={{ marginBottom: '1.5rem' }}>
@@ -71,8 +85,6 @@ export default function Axes() {
                 Spécialisée en nutrithérapie, je vous propose un bilan de vitalité complet
                 pour rééquilibrer votre alimentation, soutenir votre digestion et corriger les carences.
               </p>
-              
-              {/* AJOUT DU PRIX ICI */}
               <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
                 <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--terracotta)', display: 'block', marginBottom: '0.5rem' }}>
                   À partir de 60 €
@@ -87,10 +99,16 @@ export default function Axes() {
                 </a>
               </div>
             </div>
-          </article>
+          </motion.article>
 
-          {/* Axe 3 : Bien-être & Méditation */}
-          <article className="axe-card axe-card--tertiary">
+          {/* Carte 3 : Apparait avec 0.5s de délai */}
+          <motion.article 
+            className="axe-card axe-card--tertiary"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+          >
             <div className="axe-card__number">03</div>
             <div className="axe-card__body">
               <div className="axe-card__icon" style={{ marginBottom: '1.5rem' }}>
@@ -108,8 +126,6 @@ export default function Axes() {
                 Des outils naturels pour apaiser le système nerveux et retrouver une sérénité
                 profonde au quotidien. Séances de relaxation, bols tibétains et méditation guidée.
               </p>
-              
-              {/* AJOUT DU PRIX ICI */}
               <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
                 <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-dark)', display: 'block', marginBottom: '0.5rem' }}>
                   À partir de 40 €
@@ -124,7 +140,8 @@ export default function Axes() {
                 </a>
               </div>
             </div>
-          </article>
+          </motion.article>
+
         </div>
       </div>
     </section>
