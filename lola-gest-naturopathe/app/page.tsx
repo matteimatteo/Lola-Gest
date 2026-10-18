@@ -1,4 +1,4 @@
-'use client'; // Indispensable pour utiliser useEffect
+'use client';
 
 import { useEffect } from 'react';
 import Header from './components/Header';
@@ -8,12 +8,8 @@ import Cabinet from './components/Cabinet';
 import Footer from './components/Footer';
 
 export default function Home() {
-  
-  // Ce code s'exécute une seule fois au chargement de la page
   useEffect(() => {
-    // Désactive la restauration automatique du navigateur
     window.history.scrollRestoration = 'manual';
-    // Remonte tout en haut
     window.scrollTo(0, 0);
   }, []);
 

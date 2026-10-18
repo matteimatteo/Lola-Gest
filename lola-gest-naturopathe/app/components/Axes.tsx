@@ -1,4 +1,4 @@
-'use client'; // Indispensable pour Framer Motion
+'use client';
 
 import { motion } from 'framer-motion';
 import './Axes.css';
@@ -17,13 +17,11 @@ export default function Axes() {
         </header>
 
         <div className="axes-grid">
-          
-          {/* Carte 1 : Apparait avec 0.1s de délai */}
           <motion.article 
             className="axe-card axe-card--primary"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }} // once:true évite que l'animation se répète si on remonte la page
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           >
             <div className="axe-card__number">01</div>
@@ -60,7 +58,6 @@ export default function Axes() {
             </div>
           </motion.article>
 
-          {/* Carte 2 : Apparait avec 0.3s de délai */}
           <motion.article 
             className="axe-card axe-card--secondary"
             initial={{ opacity: 0, y: 50 }}
@@ -101,7 +98,6 @@ export default function Axes() {
             </div>
           </motion.article>
 
-          {/* Carte 3 : Apparait avec 0.5s de délai */}
           <motion.article 
             className="axe-card axe-card--tertiary"
             initial={{ opacity: 0, y: 50 }}

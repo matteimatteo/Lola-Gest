@@ -1,9 +1,3 @@
-/* ─────────────────────────────────────────────────
-   Hero — Fond terracotta plein, structuré pour
-   accueillir une vidéo en background plus tard.
-   Organisation : Titre centré + CTA + overlay naturel
-   ───────────────────────────────────────────────── */
-
 .hero-section {
   position: relative;
   display: flex;
@@ -15,10 +9,8 @@
   padding: 7rem 7% 5rem;
   overflow: hidden;
   background-color: var(--terracotta);
-  /* Quand la vidéo arrivera, ce sera le fond derrière l'overlay */
 }
 
-/* ── Texture organique en arrière-plan ────── */
 .hero-section::before {
   content: "";
   position: absolute;
@@ -30,7 +22,6 @@
   pointer-events: none;
 }
 
-/* ── Forme organique déco coin haut-droite ── */
 .hero-section::after {
   content: "";
   position: absolute;
@@ -38,11 +29,9 @@
   right: -50px;
   width: 500px;
   height: 500px;
-  /* ON AJOUTE LA PHOTO ICI */
   background-image: url('/hero-photo.png');
   background-size: cover;
   background-position: center;
-  /* On garde l'effet asymétrique et l'animation */
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   animation: morph 12s ease-in-out infinite;
   pointer-events: none;
@@ -50,7 +39,6 @@
   box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
-/* ── Contenu central ────────────────────────── */
 .hero-content {
   position: relative;
   z-index: 1;
@@ -61,7 +49,6 @@
   gap: 0;
 }
 
-/* Pastille eyebrow */
 .hero-eyebrow {
   display: inline-block;
   font-size: 0.65rem;
@@ -75,7 +62,6 @@
   border-radius: 50px;
 }
 
-/* Titre principal */
 .hero-content h1 {
   font-size: clamp(3.2rem, 6vw, 6.5rem);
   color: var(--lin);
@@ -91,7 +77,6 @@
   font-size: 0.85em;
 }
 
-/* Sous-titre */
 .hero-subtitle {
   font-size: 1.05rem;
   color: rgba(246, 240, 230, 0.65);
@@ -101,7 +86,6 @@
   max-width: 520px;
 }
 
-/* ── Boutons ────────────────────────────────── */
 .hero-buttons {
   display: flex;
   gap: 1rem;
@@ -110,7 +94,6 @@
   justify-content: center;
 }
 
-/* Bouton principal : lin sur terracotta */
 .btn-primary {
   display: inline-block;
   padding: 1rem 2.5rem;
@@ -133,7 +116,6 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-/* Bouton secondaire : ghost blanc */
 .btn-secondary {
   display: inline-block;
   padding: 1rem 2.5rem;
@@ -155,9 +137,6 @@
   transform: translateY(-2px);
 }
 
-
-
-/* ── Responsive ─────────────────────────────── */
 @media (max-width: 768px) {
   .hero-section {
     padding: 5rem 5% 4rem;
@@ -168,6 +147,6 @@
     height: 300px;
     top: -20px;
     right: -20px;
-    opacity: 0.5; /* Plus transparent sur mobile pour qu'on lise bien le texte */
+    opacity: 0.5;
   }
 }

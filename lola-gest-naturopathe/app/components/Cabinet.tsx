@@ -1,4 +1,4 @@
-'use client'; // Indispensable pour Framer Motion
+'use client';
 
 import './Cabinet.css';
 import Image from 'next/image';
@@ -9,7 +9,6 @@ export default function Cabinet() {
     <section id="cabinet" className="cabinet-section">
       <div className="cabinet-container">
         
-        {/* Titre et en-tête animés (Fondu vers le haut) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,16 +21,14 @@ export default function Cabinet() {
 
         <div className="cabinet-content">
           
-          {/* COLONNE GAUCHE : Photo + Textes (Glisse depuis la gauche) */}
           <motion.div 
             className="cabinet-infos"
-            initial={{ opacity: 0, x: -40 }} // Démarre 40px plus à gauche
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           >
             
-            {/* L'image du bureau */}
             <div style={{ position: 'relative', width: '100%', height: '220px', marginBottom: '1.5rem', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(44,38,32,0.08)' }}>
               <Image 
                 src="/cabinet-bureau.png" 
@@ -80,13 +77,12 @@ export default function Cabinet() {
             </a>
           </motion.div>
 
-          {/* COLONNE DROITE : La GRANDE Map (Glisse depuis la droite) */}
           <motion.div 
             className="cabinet-map"
-            initial={{ opacity: 0, x: 40 }} // Démarre 40px plus à droite
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }} // Un délai un peu plus long pour l'effet de cascade
+            transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
           >
             <iframe
               src="https://www.google.com/maps?q=216+Rue+Emile+Grevet+62780+Cucq&output=embed"

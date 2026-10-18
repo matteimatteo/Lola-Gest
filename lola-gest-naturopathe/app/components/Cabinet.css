@@ -1,7 +1,3 @@
-/* ─────────────────────────────────────────────────
-   Cabinet — fond vert d'eau, 100vh
-   ───────────────────────────────────────────────── */
-
 .cabinet-section {
   padding: 0 7%;
   background-color: var(--vert-eau);
@@ -24,7 +20,6 @@
   max-width: 520px;
 }
 
-/* Eyebrow pill */
 .cabinet-eyebrow {
   display: inline-block;
   font-size: 0.68rem;
@@ -95,8 +90,8 @@
 .cabinet-map {
   flex: 1;
   width: 100%;
-  min-height: 450px; /* On remet la grande taille ! */
-  position: relative; /* Très important pour que l'iframe remplisse le cadre */
+  min-height: 450px;
+  position: relative;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(44, 38, 32, 0.12);
@@ -133,7 +128,7 @@
   }
 
   .cabinet-map {
-    min-height: 400px; /* Sur mobile on la garde bien grande aussi */
+    min-height: 400px;
   }
   
   .cabinet-map iframe {

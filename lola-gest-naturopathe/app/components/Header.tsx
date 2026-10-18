@@ -8,7 +8,6 @@ import './Header.css';
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  // NOUVEAU : État pour gérer l'ouverture du menu sur mobile
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -16,7 +15,7 @@ export default function Header() {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
         setIsVisible(false);
-        setIsMobileMenuOpen(false); // Ferme le menu si on scroll vers le bas
+        setIsMobileMenuOpen(false);
       } else {
         setIsVisible(true);
       }
@@ -33,7 +32,6 @@ export default function Header() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    // Ferme le menu mobile après avoir cliqué sur un lien
     setIsMobileMenuOpen(false); 
   };
 
@@ -49,7 +47,6 @@ export default function Header() {
         />
       </div>
       
-      {/* NOUVEAU : Le bouton Burger visible uniquement sur mobile */}
       <button 
         className="mobile-menu-btn"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -58,7 +55,6 @@ export default function Header() {
         {isMobileMenuOpen ? '✕' : '☰'}
       </button>
 
-      {/* On ajoute une classe dynamique si le menu est ouvert */}
       <nav className={`navbar ${isMobileMenuOpen ? 'navbar--open' : ''}`}>
         <ul>
           <li>
