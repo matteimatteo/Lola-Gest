@@ -54,7 +54,12 @@
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: rgba(246, 240, 230, 0.3);
-  cursor: default;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.footer-mentions:hover {
+  color: var(--lin);
 }
 
 .footer-copy {
